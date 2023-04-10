@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>ASp Chat- Yeni oda yarat</title>
+<script language="JavaScript">
+
+  function verify(form){
+      if(form.room_name.value == "" || form.room_description.value==""){
+            alert("Enter a room name and a room description.");
+            return false;
+      }
+  }
+
+</script>
+</head>
+<body  Bgcolor="#476895" link=#000000 vlink=#000000>
+<img src="chat.gif" width="214" height="184">
+<br>
+<center>
+<form method="post" action="create_room.asp" onSubmit="return verify(this)">
+<table border=1 cellpadding=0 cellspacing=0 bgcolor=#ffffff><tr><td>
+<table border=0 cellpadding=5 cellspacing=0><tr>
+<td align=center colspan=2 bgcolor=#476895><font color=#f0f0f0 face="verdana"><b>
+ASP Chat</b>
+</td></tr>
+  <tr><td>
+       <font face="verdana" size=-1>Yeni oda adý:
+    </td>
+    <td>
+       <font face="verdana"><input type="text" size=15 name="room_name">
+    </td>
+  </tr>
+  <tr><td valign=top>
+       <font face="verdana" size=-1>Konusu:
+    </td>
+    <td valign=top>
+       <font face="verdana"><textarea rows=3 cols=15 wrap="virtual" name="room_description"></textarea>
+    </td>
+  </tr>
+  <tr><td colspan=2 align=center>
+      <input type="submit" value="Odayý yarat">
+  </td></tr></form>
+</table>
+</td></tr></table>
+</body>
+</html>

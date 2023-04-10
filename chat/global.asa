@@ -1,0 +1,128 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server> 
+ 
+ReDim TopicName(0)
+ReDim TopicDescription(0)
+
+ 
+ Sub Application_OnStart
+
+     '###########################################################
+     ' set title
+     Application("Title") = "ASP Chat"
+     ' Create your chat rooms below, do not modify anything else/
+     CreateRoom "Zurna", "En sevilen kanal"
+     CreateRoom "Asp Coder", "asp cilerin yeri"
+     CreateRoom "Maxiasp", "maxiasp nin kanalý"
+     'CreateRoom "Room Name", "Room Description"
+     '###########################################################
+	 
+     Application("TopicNames") = TopicName
+     Application("TopicDescriptions") = TopicDescription
+
+     Dim Users()
+     Redim Users(1)
+     Dim UsersGroup()
+     Redim UsersGroup(1)
+     Application("Users") = Users
+     Application("UsersGroup") = UsersGroup
+
+     Dim UsersIP()
+     Redim UsersIP(1)
+     Dim UsersTimeOn()
+     Redim UsersTimeOn(1)
+     Dim UsersIdleOn()
+     Redim UsersIdleTime(1)
+     Application("UsersIP") = UsersIP
+     Application("UsersTimeOn") = UsersTimeOn
+     Application("UsersIdleTime") = UsersIdleTime
+
+ End Sub
+
+ Sub Session_OnStart
+   Session.Timeout=2
+ End Sub
+
+ Sub Session_OnEnd
+    Topic = Session("Topic")
+    Name = Session("Name")
+
+    Users = Application("Users")
+    UsersIP = Application("UsersIP")
+    UsersTimeOn = Application("UsersTimeOn")
+    UsersIdleTime = Application("UsersIdleTime")
+
+    Match = 1
+    If IsArray(Users) Then
+           UsersGroup = Application("UsersGroup")
+           NumOfUsers = UBound(Users)
+           If NumOfUsers = 1 Then
+                 Set Application("Users") = Nothing
+                 Set Application("UsersGroup") = Nothing
+
+                 Set Application("UsersIP") = Nothing
+                 Set Application("UsersIdleTime") = Nothing
+                 Set Application("UsersTimeOn") = Nothing
+           Else 
+              ReDim UpdatedUsers(1)
+              ReDim UpdatedUsersGroup(1)
+
+              ReDim UpdatedUsersIP(1)
+              ReDim UpdatedUsersTimeOn(1)
+              ReDim UpdatedUsersIdleTime(1)
+              For I = 1 To NumOfUsers
+                  If Name <> Users(I) Then
+                       ReDim Preserve UpdatedUsers(Match)
+                       ReDim Preserve UpdatedUsersGroup(Match)
+                       UpdatedUsers(Match) = Users(I)
+                       UpdatedUsersGroup(Match) = UsersGroup(I)
+
+
+                       ReDim Preserve UpdatedUsersIP(Match)
+                       ReDim Preserve UpdatedUsersTimeOn(Match)
+                       ReDim Preserve UpdatedUsersIdleTime(Match)
+                       UpdatedUsersIP(Match) = UsersIP(I)
+                       UpdatedUsersTimeOn(Match) = UsersTimeOn(I)
+                       UpdatedUsersIdleTime(Match) = UsersIdleTime(I)
+
+                       Match = Match + 1
+                  End If
+              Next
+              Application("Users") = UpdatedUsers
+              Application("UsersGroup") = UpdatedUsersGroup
+
+              Application("UsersIP") = UpdatedUsersIP
+              Application("UsersTimeOn") = UpdatedUsersTimeOn
+              Application("UsersIdleTime") = UpdatedUsersIdleTime
+
+           End If
+   End If
+
+
+   Set fileObject = Server.CreateObject("Scripting.FileSystemObject")
+   textFile = Application("filebase") & Replace(Topic, "+", "_") & ".txt"
+   'If fileObject.FileExists(textfile) Then
+         Set inStream = fileObject.OpenTextFile(textFile,1,TRUE,FALSE)
+         file = inStream.ReadAll
+         Set inStream = Nothing
+
+         file = file & "<FONT SIZE=2 FACE='Vedana,Arial' Color=#808080><b>***[" &  Name & " odadan ayrýldý (" & Now & ")]***</b></FONT><br>"
+         Set outStream = fileObject.CreateTextFile(textFile,True)
+         outStream.WriteLine(file)
+	 outStream.Close
+         Set outStream = Nothing
+   'End If
+
+   Session("Enter") = True
+ End Sub
+
+ Sub CreateRoom(Name, Description)
+   		nLen = UBound(TopicName)+1
+   		ReDim Preserve TopicName(nLen)
+   		TopicName(nLen) = Name
+   		ReDim Preserve TopicDescription(nLen)
+   		TopicDescription(nLen) = Description
+		
+ End Sub
+
+</script>
+

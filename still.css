@@ -1,0 +1,38 @@
+a.menu:link {color: #1e5ed2; font-size: 11pt; text-decoration: none;}
+a.menu:visited {color: #1e5ed2; font-size: 11pt; text-decoration: none;}
+a.menu:active {color: #5691F1; font-size: 11pt; text-decoration: none;}
+a.menu:hover {color: #5691F1; font-size: 11pt; text-decoration: none; cursor: crosshair;}
+td.haberbas {color: red; font-size: 9pt; font-family: verdana, arial;}
+td.yazi {color: silver; font-size: 10px; font-family: verdana, arial;}
+td.sag_bas {color: red; font-family: verdana,sans-serif; font-size: 8pt; font-weight: bold; text-align: center;}
+td.sag_ust {color: #303030; font-family: verdana,sans-serif; font-size: 8pt; font-weight: bold; text-align: center;}
+td.sag_ic {color: #757575; font-family: verdana,sans-serif; font-size: 10px; text-align: left; padding: 4px;}
+td.sag_bos {font-size: 2pt;}
+a.sag:link {color: #757575; font-family: verdana,sans-serif; font-size: 10px; text-align: left; padding: 4px; text-decoration: none;}
+a.sag:visited {color: #757575; font-family: verdana,sans-serif; font-size: 10px; text-align: left; padding: 4px; text-decoration: none;}
+a.sag:active {color: red; font-family: verdana,sans-serif; font-size: 10px; text-align: left; padding: 4px;}
+a.sag:hover {color: red; font-family: verdana,sans-serif; font-size: 10px; text-align: left; padding: 4px;}
+a.menu2:link {color: #1e5ed2; font-size: 11px; text-decoration: none;}
+a.menu2:visited {color: #1e5ed2; font-size: 11px; text-decoration: none;}
+a.menu2:active {color: #5691F1; font-size: 11px; text-decoration: none;}
+a.menu2:hover {color: #5691F1; font-size: 11px; text-decoration: underline;}
+td.uye_ol {color: #000000; font-family: verdana,sans-serif; font-size: 10px;}
+.input { Background-Color: #EFEFEF; Color: #000000; Border: 1; 
+Border-Style: solid; Border-Color: Dashed Silver; Font-Size: 10PX; 
+Font-Weight: Bold; Font-Family: verdana,tahoma,arial; }
+.input2 { Background-Color: #EFEFEF; Color: #000000; Border: 1; 
+Border-Style: solid; Border-Color: Dashed Silver; Font-Size: 9PX; 
+Font-Weight: None; width:132; Font-Family: verdana,tahoma,arial; }
+a.doku:link {color: #1e5ed2; font-size: 11px; text-decoration: none;}
+a.doku:visited {color: #1e5ed2; font-size: 11px; text-decoration: none;}
+a.doku:active {color: #5691F1; font-size: 11px; text-decoration: none;}
+a.doku:hover {color: #5691F1; font-size: 11px; text-decoration: none;}
+a.nor:link {color: #1e5ed2; font-size: 8pt; text-decoration: none;}
+a.nor:visited {color: #1e5ed2; font-size: 8pt; text-decoration: none;}
+a.nor:active {color: #5691F1; font-size: 8pt; text-decoration: none;}
+a.nor:hover {color: #5691F1; font-size: 8pt; text-decoration: none;}
+td.album {color: black; font-size: 11px; font-family: verdana, arial;}
+body {	scrollbar-face-color:black; scrollbar-3dlight-color:#000000;
+scrollbar-highlight-color:#c0c0c0; scrollbar-shadow-color:#031B55;
+scrollbar-darkshadow-color:000000; scrollbar-track-color:#990000;
+scrollbar-arrow-color:white;}
